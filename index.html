@@ -1,14 +1,34 @@
-
 <!doctype html>
-<html class="no-js" lang="id">
+<html class="no-js" lang="id" data-theme="light">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>evevsteam - Cuci Steam Hidrolik & Snow Wash Express Motor & Mobil</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="Pusat cuci steam hidrolik mobil dan motor profesional di Jakarta Timur. Shampo salju pH balance, cuci kolong 150 bar, vacuum interior mendalam, bebas baret.">
+    <title>evevsteam - Cuci Steam Hidrolik &amp; Detailing Mobil-Motor Bebas Baret Jakarta Timur</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Pusat cuci steam hidrolik mobil dan motor profesional di Jatinegara, Jakarta Timur. Shampo salju pH balance 7.0, cuci kolong 150 bar, vacuum interior mendalam, poles kaca, dan coating bebas baret.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Anti-FOUC Theme Initialization Script (Runs Before CSS Paint) -->
+    <script>
+        (function () {
+            try {
+                var key = "evev_theme_cucisteam";
+                var saved = localStorage.getItem(key);
+                var theme = (saved === "dark" || saved === "light")
+                    ? saved
+                    : (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme", theme);
+                document.documentElement.style.colorScheme = theme;
+                var meta = document.querySelector('meta[name="theme-color"]');
+                if (meta) meta.setAttribute("content", theme === "dark" ? "#090d14" : "#ffffff");
+            } catch (e) {
+                document.documentElement.setAttribute("data-theme", "light");
+            }
+        })();
+    </script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" />
@@ -22,56 +42,377 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/theme-toggle.css">
     <style>
+        /* Layout & Readability Safeguards (Zero Truncation, Clean Cards) */
         .service-photo-wrap {
             position: relative;
             overflow: hidden;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+            aspect-ratio: 16 / 10;
+            background: #0f172a;
         }
         .service-photo {
             width: 100%;
-            height: 220px;
+            height: 100%;
             object-fit: cover;
+            object-position: center;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.45s ease;
         }
         .ltn__service-item:hover .service-photo {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
-        .icon-3d {
-            width: 58px;
-            height: 58px;
-            object-fit: contain;
-            filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
-            margin-bottom: 15px;
+        .ltn__service-item.service-card-clean {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: visible !important;
+            border-radius: 16px;
         }
-        .service-price-tag {
-            display: inline-block;
-            background: rgba(5, 150, 105, 0.12);
-            color: #059669;
-            font-weight: 700;
-            font-size: 15px;
-            padding: 4px 12px;
-            border-radius: 20px;
+        .service-card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+        }
+        .service-card-title {
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 8px;
+            word-break: break-word;
+            white-space: normal;
+        }
+        .service-card-title a {
+            color: var(--ltn__heading-color);
+            text-decoration: none;
+        }
+        .service-card-desc {
+            font-size: 14.5px;
+            line-height: 1.65;
+            margin-bottom: 18px;
+            flex-grow: 1;
+            overflow: visible;
+            display: block;
+            -webkit-line-clamp: unset;
+        }
+        .service-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 12px;
         }
+        .service-price-tag {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(5, 150, 105, 0.14);
+            color: #047857;
+            font-weight: 800;
+            font-size: 14.5px;
+            padding: 5px 13px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
         [data-theme="dark"] .service-price-tag {
-            background: rgba(5, 150, 105, 0.25);
+            background: rgba(16, 185, 129, 0.22);
             color: #34d399;
+        }
+        .service-duration-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(14, 116, 144, 0.12);
+            color: #0e7490;
+            font-weight: 700;
+            font-size: 12.5px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        [data-theme="dark"] .service-duration-tag {
+            background: rgba(6, 182, 212, 0.18);
+            color: #67e8f9;
         }
         .badge-pill {
             position: absolute;
-            top: 14px;
-            left: 14px;
-            background: linear-gradient(135deg, #059669, #06B6D4);
-            color: #fff;
+            top: 12px;
+            left: 12px;
+            background: linear-gradient(135deg, #059669, #0891b2);
+            color: #ffffff;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: 0.4px;
             text-transform: uppercase;
-            padding: 4px 12px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            padding: 5px 13px;
+            border-radius: 999px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
             z-index: 2;
+        }
+        .icon-badge-3d {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.14), rgba(6, 182, 212, 0.16));
+            color: #059669;
+            margin-bottom: 16px;
+            box-shadow: 0 8px 20px rgba(5, 150, 105, 0.16);
+        }
+        [data-theme="dark"] .icon-badge-3d {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(6, 182, 212, 0.22));
+            color: #34d399;
+        }
+        .about-photo-cover {
+            width: 100%;
+            height: 440px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+            display: block;
+        }
+        /* Pricing Cards & Full Transparent Price Table */
+        .ltn__pricing-plan-item.pricing-card-clean {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: visible !important;
+            border-radius: 18px;
+        }
+        .pricing-card-clean .pricing-features {
+            flex-grow: 1;
+            text-align: left;
+            list-style: none;
+            padding-left: 0;
+            margin: 0 0 24px;
+        }
+        .pricing-card-clean .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 0;
+            font-size: 14.5px;
+            line-height: 1.5;
+            white-space: normal;
+            word-break: break-word;
+            border-bottom: 1px dashed rgba(148, 163, 184, 0.25);
+        }
+        .pricing-card-clean .pricing-features li:last-child {
+            border-bottom: none;
+        }
+        .pricing-check {
+            color: #059669;
+            font-weight: 800;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .price-table-card {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            background: #ffffff;
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.07);
+        }
+        [data-theme="dark"] .price-table-card {
+            background: #121822;
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+        }
+        .price-table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .price-list-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+        }
+        .price-list-table thead th {
+            background: #0f172a;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 13.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 15px 18px;
+            text-align: left;
+            white-space: nowrap;
+        }
+        .price-list-table tbody td {
+            padding: 15px 18px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            vertical-align: middle;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+            color: var(--ltn__heading-color);
+        }
+        [data-theme="dark"] .price-list-table tbody td {
+            color: #e2e8f0;
+            border-bottom-color: rgba(255, 255, 255, 0.08);
+        }
+        .price-list-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+        .price-cat-pill {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(5, 150, 105, 0.12);
+            color: #047857;
+            white-space: nowrap;
+        }
+        [data-theme="dark"] .price-cat-pill {
+            background: rgba(16, 185, 129, 0.22);
+            color: #34d399;
+        }
+        .price-amount-cell {
+            font-weight: 800;
+            font-size: 16px;
+            color: #059669 !important;
+            white-space: nowrap;
+        }
+        [data-theme="dark"] .price-amount-cell {
+            color: #34d399 !important;
+        }
+        /* FAQ contrast fix in Dark Mode */
+        .faq-card-clean {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            background: #ffffff;
+        }
+        [data-theme="dark"] .faq-card-clean {
+            background: #121822;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        [data-theme="dark"] .faq-card-clean .ltn__card-title {
+            color: #f8fafc !important;
+        }
+        [data-theme="dark"] .faq-card-clean .card-body {
+            color: #cbd5e1 !important;
+        }
+        /* Quick Booking Form Card */
+        .booking-wa-box {
+            border-radius: 20px;
+            padding: 36px;
+            background: #ffffff;
+            border: 1px solid rgba(5, 150, 105, 0.25);
+            box-shadow: 0 18px 42px rgba(15, 23, 42, 0.08);
+        }
+        [data-theme="dark"] .booking-wa-box {
+            background: #121822;
+            border-color: rgba(52, 211, 153, 0.28);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.45);
+        }
+        .booking-wa-box label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--ltn__heading-color);
+        }
+        .booking-wa-box .form-control,
+        .booking-wa-box .form-select {
+            border-radius: 12px;
+            padding: 11px 14px;
+            font-size: 14.5px;
+            margin-bottom: 16px;
+        }
+        /* Status Operasional Pill */
+        .status-live-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 999px;
+            background: rgba(16, 185, 129, 0.18);
+            color: #34d399;
+        }
+        .status-live-pill::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10b981;
+            display: inline-block;
+        }
+        /* Single Floating WhatsApp Button + Non-Overlapping Template Switcher */
+        .floating-wa-btn {
+            position: fixed !important;
+            bottom: 24px !important;
+            right: 24px !important;
+            z-index: 99999 !important;
+            display: inline-flex !important;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%) !important;
+            color: #ffffff !important;
+            padding: 13px 22px;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 14px;
+            text-decoration: none !important;
+            box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .floating-wa-btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 34px rgba(37, 211, 102, 0.6);
+        }
+        #evev-template-switcher {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 99990;
+            background: rgba(15, 23, 42, 0.94);
+            backdrop-filter: blur(12px);
+            padding: 7px 12px;
+            border-radius: 999px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            max-width: calc(100vw - 260px);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        #evev-template-switcher::-webkit-scrollbar {
+            display: none;
+        }
+        @media (max-width: 767px) {
+            .about-photo-cover {
+                height: 280px;
+            }
+            .booking-wa-box {
+                padding: 22px 18px;
+            }
+            .floating-wa-btn {
+                bottom: 18px !important;
+                right: 16px !important;
+                padding: 13px 16px;
+                font-size: 13px;
+            }
+            .floating-wa-btn span {
+                display: inline !important;
+            }
+            #evev-template-switcher {
+                left: 12px;
+                right: 12px;
+                bottom: 74px;
+                max-width: none;
+                padding: 6px 10px;
+            }
+            body {
+                padding-bottom: 110px;
+            }
         }
     </style>
 </head>
@@ -86,12 +427,12 @@
         <!-- ltn__header-top-area start -->
         <div class="ltn__header-top-area">
             <div class="container">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-7">
                         <div class="ltn__top-bar-menu">
                             <ul>
-                                <li><a href="mailto:evevdigital@gmail.com"><i class="icon-mail"></i> @evevdigital.com</a></li>
-                                <li><a href="#kontak"><i class="icon-placeholder"></i> Jl. Otista Raya No. 88, Jatinegara, Jakarta Timur</a></li>
+                                <li><a href="mailto:evevdigital@gmail.com"><i class="icon-mail"></i> <span data-config="email">evevdigital@gmail.com</span></a></li>
+                                <li><a href="#kontak"><i class="icon-placeholder"></i> <span data-config="alamatSingkat">Jl. Otista Raya No. 88, Jatinegara, Jakarta Timur</span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,8 +440,8 @@
                         <div class="top-bar-right text-end">
                             <div class="ltn__top-bar-menu">
                                 <ul>
-                                    <li><i class="icon-clock"></i> Buka Setiap Hari: 07:30 - 21:00 WIB</li>
-                                    <li><a href="https://wa.me/62895323418658" target="_blank" rel="noopener"><i class="icon-phone-call"></i> 0895-3234-18658</a></li>
+                                    <li><i class="icon-clock"></i> <span data-config="jamBukaText">Setiap Hari: 07:30 - 21:00 WIB</span></li>
+                                    <li><a href="https://wa.me/62895323418658" target="_blank" rel="noopener noreferrer"><i class="icon-phone-call"></i> <span data-config="whatsappDisplay">+62 895-3234-18658</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -133,7 +474,7 @@
                                         <li><a href="#layanan">Layanan</a></li>
                                         <li><a href="#keunggulan">Keunggulan</a></li>
                                         <li><a href="#harga">Daftar Harga</a></li>
-                                        <li><a href="#tentang">Tentang Kami</a></li>
+                                        <li><a href="#booking">Booking</a></li>
                                         <li><a href="#faq">FAQ</a></li>
                                         <li><a href="#kontak">Kontak</a></li>
                                     </ul>
@@ -152,13 +493,13 @@
                         </div>
                         <!-- CTA WA Button -->
                         <div class="header-feature-item d-none d-sm-inline-flex">
-                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20antrean%20cuci" target="_blank" rel="noopener" class="btn btn-effect-3" style="background:#059669;color:#ffffff;font-weight:700;border-radius:50px;padding:10px 20px;font-size:13px;display:inline-flex;align-items:center;gap:6px;">
+                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20booking%20antrean%20cuci%20steam%20hari%20ini" data-wa-text="Halo evevsteam, saya ingin booking antrean cuci steam hari ini. Mohon info slot tersedia." target="_blank" rel="noopener noreferrer" class="btn btn-effect-3" style="background:#059669;color:#ffffff;font-weight:700;border-radius:50px;padding:10px 20px;font-size:13px;display:inline-flex;align-items:center;gap:6px;">
                                 <i class="fab fa-whatsapp" style="font-size:16px;"></i> Booking Antrean
                             </a>
                         </div>
                         <!-- Mobile Menu Button -->
                         <div class="mobile-menu-toggle d-xl-none">
-                            <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                            <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle" aria-label="Buka Menu Navigasi">
                                 <svg viewBox="0 0 800 600">
                                     <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
                                     <path d="M300,320 L540,320" id="middle"></path>
@@ -184,7 +525,7 @@
                         <span style="font-family:'Rajdhani',sans-serif;font-size:22px;font-weight:800;color:var(--ltn__heading-color);">evev<span style="color:#059669;">steam</span></span>
                     </a>
                 </div>
-                <button class="ltn__utilize-close">&times;</button>
+                <button class="ltn__utilize-close" aria-label="Tutup Menu">&times;</button>
             </div>
             <div class="ltn__utilize-menu">
                 <ul>
@@ -192,7 +533,7 @@
                     <li><a href="#layanan">Layanan</a></li>
                     <li><a href="#keunggulan">Keunggulan</a></li>
                     <li><a href="#harga">Daftar Harga</a></li>
-                    <li><a href="#tentang">Tentang Kami</a></li>
+                    <li><a href="#booking">Booking Antrean</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#kontak">Kontak</a></li>
                 </ul>
@@ -204,7 +545,7 @@
                     </button>
                     <span style="font-size:13px;font-weight:600;">Mode Gelap / Terang</span>
                 </div>
-                <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20antrean%20cuci" class="btn btn-effect-3 w-100" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
+                <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20antrean%20cuci" data-wa-text="Halo evevsteam, saya mau booking antrean cuci kendaraan hari ini." class="btn btn-effect-3 w-100" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
                     <i class="fab fa-whatsapp"></i> Chat WhatsApp
                 </a>
             </div>
@@ -216,29 +557,32 @@
     <!-- SLIDER AREA START (slider-3) (#hero) -->
     <div class="ltn__slider-area ltn__slider-3 section-bg-1" id="hero">
         <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1">
-            <!-- ltn__slide-item -->
-            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="img/evevsteam/hero_steam_wash_combo.webp" style="background-image: url('img/evevsteam/hero_steam_wash_combo.webp'); min-height: 650px;">
+            <!-- ltn__slide-item 1 -->
+            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=80" style="background-image: url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 650px;">
                 <div class="ltn__slide-item-inner text-left">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 align-self-center">
                                 <div class="slide-item-info">
                                     <div class="slide-item-info-inner ltn__slide-animation">
-                                        <h6 class="slide-sub-title ltn__secondary-color animated" style="color:#059669 !important;letter-spacing:2px;font-weight:700;">// PUSAT CUCI STEAM HIDROLIK MOTOR & MOBIL //</h6>
-                                        <h1 class="slide-title animated text-white" style="font-weight:800;font-size:clamp(32px, 5vw, 56px);line-height:1.2;">
-                                            Cuci Salju Hidrolik Bersih Total Sampai Kolong & Bebas Baret
+                                        <div class="mb-3">
+                                            <span class="status-live-pill" data-status-operasional>Buka Setiap Hari: 07:30 - 21:00 WIB</span>
+                                        </div>
+                                        <h6 class="slide-sub-title ltn__secondary-color animated" style="color:#34d399 !important;letter-spacing:1.8px;font-weight:800;">// CUCI STEAM HIDROLIK &amp; DETAILING JAKARTA TIMUR //</h6>
+                                        <h1 class="slide-title animated text-white" style="font-weight:800;font-size:clamp(30px, 5vw, 54px);line-height:1.18;">
+                                            Mobil &amp; Motor Kinclong Sampai Kolong, Dijamin Bebas Baret!
                                         </h1>
                                         <div class="slide-brief animated">
-                                            <p style="color:#E2E8F0;font-size:16px;max-width:620px;">
-                                                Teknologi hidrolik X-lift aman, semprotan tekanan tinggi 150 bar, shampoo salju pH balance ramah pernis, dan tim pengering profesional dengan microfiber anti swirl-mark.
+                                            <p style="color:#E2E8F0;font-size:16px;line-height:1.7;max-width:630px;">
+                                                4 unit hidrolik X-Frame aman untuk mobil ceper, steam 150 bar rontokkan lumpur sasis, shampo salju pH 7.0 ramah coating, plus pengeringan 2 teknisi microfiber. Booking via WA agar langsung masuk pit tanpa antre panjang!
                                             </p>
                                         </div>
-                                        <div class="btn-wrapper animated mt-4">
-                                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20antrean%20cuci%20hidrolik" target="_blank" rel="noopener" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:14px 28px;font-weight:700;">
-                                                <i class="fab fa-whatsapp me-2"></i> Booking Antrean Cuci
+                                        <div class="btn-wrapper animated mt-4 d-flex flex-wrap gap-2">
+                                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20booking%20antrean%20cuci%20hidrolik%20hari%20ini" data-wa-text="Halo evevsteam, saya ingin booking antrean cuci steam hidrolik hari ini. Mohon info slot tersedia." target="_blank" rel="noopener noreferrer" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:14px 28px;font-weight:700;">
+                                                <i class="fab fa-whatsapp me-2"></i> Booking Slot via WA
                                             </a>
-                                            <a href="#layanan" class="btn btn-transparent text-white ms-2" style="border:2px solid #ffffff;border-radius:50px;padding:12px 24px;font-weight:700;">
-                                                Lihat Layanan
+                                            <a href="#harga" class="btn btn-transparent text-white" style="border:2px solid #ffffff;border-radius:50px;padding:12px 24px;font-weight:700;">
+                                                Cek Daftar Harga
                                             </a>
                                         </div>
                                     </div>
@@ -249,28 +593,28 @@
                 </div>
             </div>
             <!-- ltn__slide-item 2 -->
-            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="img/evevsteam/hero_foam_cannon.webp" style="background-image: url('img/evevsteam/hero_foam_cannon.webp'); min-height: 650px;">
+            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 bg-image bg-overlay-theme-black-60" data-bs-bg="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1600&q=80" style="background-image: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 650px;">
                 <div class="ltn__slide-item-inner text-left">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-8 align-self-center">
                                 <div class="slide-item-info">
                                     <div class="slide-item-info-inner ltn__slide-animation">
-                                        <h6 class="slide-sub-title ltn__secondary-color animated" style="color:#059669 !important;letter-spacing:2px;font-weight:700;">// TEKNOLOGI ACTIVE SNOW FOAM CANNON //</h6>
-                                        <h1 class="slide-title animated text-white" style="font-weight:800;font-size:clamp(32px, 5vw, 56px);line-height:1.2;">
-                                            Busa Salju Tebal Melarutkan Kotoran Hingga Sela Tersembunyi
+                                        <h6 class="slide-sub-title ltn__secondary-color animated" style="color:#34d399 !important;letter-spacing:1.8px;font-weight:800;">// ACTIVE SNOW FOAM CANNON &amp; PROTEKSI CAT //</h6>
+                                        <h1 class="slide-title animated text-white" style="font-weight:800;font-size:clamp(30px, 5vw, 54px);line-height:1.18;">
+                                            Busa Salju Tebal Melarutkan Lumpur Tanpa Mengikis Pernis
                                         </h1>
                                         <div class="slide-brief animated">
-                                            <p style="color:#E2E8F0;font-size:16px;max-width:620px;">
-                                                Formula busa salju kental melunakkan kerak lumpur, aspal, dan minyak seketika tanpa perlu digosok kasar, menjaga bodi kendaraan tetap berkilau seperti baru.
+                                            <p style="color:#E2E8F0;font-size:16px;line-height:1.7;max-width:630px;">
+                                                Busa salju kental melunakkan debu, kerak oli, dan aspal sebelum dibilas air filtrasi jernih. Hasil kilap basah (wet-look), interior bebas bau apek, dan ban hitam pekat tahan hujan.
                                             </p>
                                         </div>
-                                        <div class="btn-wrapper animated mt-4">
-                                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20cuci%20snow%20wash" target="_blank" rel="noopener" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:14px 28px;font-weight:700;">
+                                        <div class="btn-wrapper animated mt-4 d-flex flex-wrap gap-2">
+                                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20booking%20cuci%20snow%20wash" data-wa-text="Halo evevsteam, saya ingin booking cuci snow wash hari ini." target="_blank" rel="noopener noreferrer" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:14px 28px;font-weight:700;">
                                                 <i class="fab fa-whatsapp me-2"></i> Chat Langsung WA
                                             </a>
-                                            <a href="#harga" class="btn btn-transparent text-white ms-2" style="border:2px solid #ffffff;border-radius:50px;padding:12px 24px;font-weight:700;">
-                                                Daftar Harga
+                                            <a href="#layanan" class="btn btn-transparent text-white" style="border:2px solid #ffffff;border-radius:50px;padding:12px 24px;font-weight:700;">
+                                                Lihat Semua Paket
                                             </a>
                                         </div>
                                     </div>
@@ -291,41 +635,41 @@
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
                         <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// STANDAR KUALITAS EVEVSTEAM //</h6>
-                        <h1 class="section-title">Mengapa Memilih Layanan Steam Kami?</h1>
+                        <h1 class="section-title">Kenapa Ribuan Pemilik Kendaraan Percaya Kami?</h1>
                     </div>
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4">
-                        <div class="ltn__feature-icon mb-3">
-                            <img src="img/evevsteam/icon_lift_hidrolik.webp" alt="Lift Hidrolik" class="icon-3d">
+                <div class="col-lg-4 col-sm-6 col-12 mb-4">
+                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4 h-100" style="border-radius:16px;">
+                        <div class="icon-badge-3d" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14v-5H5v5z"/><path d="M7 12l2-4h6l2 4"/><path d="M3 20h18"/><path d="M12 17v3"/></svg>
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="#layanan">Lift Hidrolik Modern</a></h3>
-                            <p>Unit hidrolik scissor lift kokoh bersertifikasi aman untuk mobil dan motor, memudahkan cuci kolong tuntas dari endapan lumpur & garam pemicu karat.</p>
+                            <h3><a href="#layanan">Lift Hidrolik X-Frame Aman</a></h3>
+                            <p>Tatakan karet presisi ramah mobil ceper &amp; body kit. Semprotan 150 bar menjangkau kolong, gardan, dan sasis hingga bersih tuntas dari lumpur pemicu karat.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4">
-                        <div class="ltn__feature-icon mb-3">
-                            <img src="img/evevsteam/icon_snow_foam.webp" alt="Snow Foam Shampo" class="icon-3d">
+                <div class="col-lg-4 col-sm-6 col-12 mb-4">
+                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4 h-100" style="border-radius:16px;">
+                        <div class="icon-badge-3d" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="#layanan">Shampo Salju pH Balance</a></h3>
-                            <p>Formula khusus pH netral 7.0 yang aman untuk seluruh jenis pernis cat, tidak memudarkan warna, serta diperkaya wax pengilap instan.</p>
+                            <h3><a href="#layanan">Shampo Salju pH Balance 7.0</a></h3>
+                            <p>Bebas detergen keras dan soda api. Aman untuk cat glossy, cat doff/matte, PPF, maupun lapisan nano ceramic coating — menjaga warna tetap tajam bertahun-tahun.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-sm-6 col-12">
-                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4">
-                        <div class="ltn__feature-icon mb-3">
-                            <img src="img/evevsteam/icon_motor_wash.webp" alt="Pit Khusus Motor" class="icon-3d">
+                <div class="col-lg-4 col-sm-6 col-12 mb-4">
+                    <div class="ltn__feature-item ltn__feature-item-7 text-center p-4 h-100" style="border-radius:16px;">
+                        <div class="icon-badge-3d" aria-hidden="true">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
                         </div>
                         <div class="ltn__feature-info">
-                            <h3><a href="#layanan">Jalur Khusus Roda Dua</a></h3>
-                            <p>Pit pengerjaan terpisah untuk motor bebek, matic hingga sport 250cc+, tidak perlu mengantre lama bercampur mobil, pengerjaan cepat & presisi.</p>
+                            <h3><a href="#layanan">Jalur Express Khusus Motor</a></h3>
+                            <p>2 pit khusus roda dua terpisah dari antrean mobil. Motor bebek, matic, hingga NMAX/PCX/Sport selesai bersih &amp; mengkilap hanya dalam 15–20 menit.</p>
                         </div>
                     </div>
                 </div>
@@ -337,29 +681,29 @@
     <!-- ABOUT US AREA START -->
     <div class="ltn__about-us-area pb-90" id="tentang">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center g-4">
                 <div class="col-lg-6 align-self-center">
                     <div class="about-us-img-wrap about-img-left">
-                        <img src="img/evevsteam/about_team_microfiber.webp" alt="Tim Teknisi evevsteam" style="border-radius:16px;box-shadow:0 15px 35px rgba(0,0,0,0.2);width:100%;">
+                        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1000&q=80" alt="Teknisi profesional evevsteam mengeringkan bodi mobil dengan kain microfiber anti baret" loading="lazy" class="about-photo-cover" style="object-fit: cover;">
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center">
                     <div class="about-us-info-wrap">
                         <div class="section-title-area ltn__section-title-2">
-                            <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// TENTANG EVEVSTEAM //</h6>
-                            <h1 class="section-title">Dedikasi Kebersihan Kendaraan Anda dengan SOP Ketat & Teliti</h1>
+                            <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// SOP DETAILING EVEVSTEAM //</h6>
+                            <h1 class="section-title">Bukan Sekadar Cuci Cepat, Tapi Perawatan Teliti Setiap Inci</h1>
                             <p>
-                                evevsteam hadir memberikan standar baru pencucian kendaraan di Indonesia. Kami memahami kendaraan bukan sekadar alat transportasi, melainkan investasi dan kebanggaan Anda.
+                                Banyak cuci mobil biasa meninggalkan baret halus (swirl mark) karena lap kanebo kotor dan air keruh. Di <strong>evevsteam</strong>, setiap kendaraan ditangani dengan standar studio detailing agar cat tetap awet dan enak dipandang.
                             </p>
                         </div>
                         <ul class="ltn__list-item-1 ltn__list-item-1-before clearfix">
-                            <li><strong style="color:var(--ltn__heading-color);">Air Filter Bersih:</strong> Menggunakan air filtrasi bebas endapan pasir dan lumpur, aman tanpa goresan halus.</li>
-                            <li><strong style="color:var(--ltn__heading-color);">Double Check Drying:</strong> 2 teknisi per kendaraan mengeringkan bodi dengan kain microfiber twisted-loop berdaya serap tinggi.</li>
-                            <li><strong style="color:var(--ltn__heading-color);">Kuas Detailing Sela:</strong> Pembersihan velg, grill, emblem, dan celah spion menggunakan kuas boar-hair super lembut.</li>
+                            <li><strong style="color:var(--ltn__heading-color);">Air Filtrasi 3 Tahap:</strong> Bebas endapan pasir dan kapur sehingga tidak memicu jamur air (waterspot) di kaca maupun bodi.</li>
+                            <li><strong style="color:var(--ltn__heading-color);">Pengeringan 2 Teknisi Microfiber:</strong> Kain microfiber twisted-loop dipisah antara bodi atas, bodi bawah, kaca, dan velg.</li>
+                            <li><strong style="color:var(--ltn__heading-color);">Ruang Tunggu AC &amp; Wi-Fi Gratis:</strong> Nikmati kopi hangat atau pantau pengerjaan kendaraan Anda dengan nyaman tanpa kepanasan.</li>
                         </ul>
                         <div class="btn-wrapper mt-4">
-                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20tanya%20layanan%20cuci" target="_blank" rel="noopener" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:12px 28px;font-weight:700;">
-                                <i class="fab fa-whatsapp me-2"></i> Konsultasi via WhatsApp
+                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20konsultasi%20paket%20cuci%20dan%20detailing" data-wa-text="Halo evevsteam, saya ingin konsultasi paket cuci dan detailing yang cocok untuk kendaraan saya." target="_blank" rel="noopener noreferrer" class="theme-btn-1 btn btn-effect-1" style="background:#059669;border:none;border-radius:50px;padding:12px 28px;font-weight:700;">
+                                <i class="fab fa-whatsapp me-2"></i> Konsultasi Gratis via WA
                             </a>
                         </div>
                     </div>
@@ -375,130 +719,131 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
-                        <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// LAYANAN UNGGULAN KAMI //</h6>
-                        <h1 class="section-title">Pilihan Paket Cuci Bersih & Perawatan</h1>
+                        <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// 6 LAYANAN UNGGULAN EVEVSTEAM //</h6>
+                        <h1 class="section-title">Pilihan Paket Cuci Steam &amp; Perawatan Lengkap</h1>
+                        <p class="mt-2" style="max-width:640px;margin:0 auto;">Semua layanan menggunakan bahan pH netral berkualitas studio dengan harga jujur di awal.</p>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row g-4">
                 <!-- Layanan 1 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Favorit Mobil</span>
-                            <img src="img/evevsteam/service_cuci_kolong.webp" alt="Cuci Steam Hidrolik Mobil" class="service-photo">
+                            <span class="badge-pill">Paling Favorit</span>
+                            <img src="https://images.unsplash.com/photo-1552930294-6b595f4c2974?auto=format&fit=crop&w=900&q=80" alt="Cuci Steam Hidrolik Mobil Komplit di evevsteam" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_lift_hidrolik.webp" alt="Icon Hidrolik" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Cuci Hidrolik Mobil</a></h4>
-                                <span class="service-price-tag">Mulai Rp 45.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Cuci Steam Hidrolik Mobil Komplit</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Mulai Rp 50.000</span>
+                                <span class="service-duration-tag">⏱ 35 Menit</span>
                             </div>
+                            <p class="service-card-desc">Angkat hidrolik X-Frame aman, semprot kolong lumpur 150 bar, snow wash pH netral, vacuum interior &amp; bagasi, lap microfiber 2 teknisi, semir ban silikon, dan parfum kabin segar.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Cuci Steam Hidrolik Mobil Komplit" data-wa-harga="Mulai Rp 50.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Booking Paket Ini
+                            </a>
                         </div>
-                        <p>Mobil diangkat lift hidrolik, kolong disemprot steam 150 bar, snow wash salju tebal, vacuum kabin, dan semir ban glossy.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20Cuci%20Hidrolik%20Mobil" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Cuci Mobil
-                        </a>
                     </div>
                 </div>
                 <!-- Layanan 2 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Express Motor</span>
-                            <img src="img/evevsteam/service_kaki_motor.webp" alt="Cuci Salju Motor Matic & Bebek" class="service-photo">
+                            <span class="badge-pill">Express 15 Menit</span>
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=900&q=80" alt="Cuci Steam Motor Express Matic Bebek dan Sport" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_motor_wash.webp" alt="Icon Motor" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Cuci Salju Motor Matic</a></h4>
-                                <span class="service-price-tag">Rp 20.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Cuci Steam Motor Express &amp; Semir Ban</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Mulai Rp 18.000</span>
+                                <span class="service-duration-tag">⏱ 15 Menit</span>
                             </div>
+                            <p class="service-card-desc">Jalur khusus motor bebek, matic (Beat, Vario, Scoopy) hingga NMAX, PCX &amp; Sport. Bersih sela velg, knalpot, dan kolong mesin dari debu oli, plus semir ban basah tahan 5 hari.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Cuci Steam Motor Express & Semir Ban" data-wa-harga="Mulai Rp 18.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Booking Cuci Motor
+                            </a>
                         </div>
-                        <p>Pembersihan motor matic (Beat, Scoopy, Vario) dengan snow wash, cuci sela velg & rantai/CVT, lap microfiber, dan semir ban.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20Cuci%20Salju%20Motor%20Matic" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Cuci Motor
-                        </a>
                     </div>
                 </div>
                 <!-- Layanan 3 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Maxi & Sport</span>
-                            <img src="img/evevsteam/hero_nmax_drying.webp" alt="Cuci Motor Maxi Scooter" class="service-photo">
+                            <span class="badge-pill">Paket Hemat</span>
+                            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=900&q=80" alt="Paket Snow Wash Jamur Kaca dan Hydrophobic Waxing" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_motor_wash.webp" alt="Icon Maxi" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Cuci Motor Maxi & Sport</a></h4>
-                                <span class="service-price-tag">Rp 30.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Paket Snow Wash + Jamur Kaca + Waxing</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Rp 120.000</span>
+                                <span class="service-duration-tag">⏱ 60 Menit</span>
                             </div>
+                            <p class="service-card-desc">Cuci hidrolik komplit ditambah pembersihan kerak jamur kaca depan &amp; samping agar pandangan malam bebas silau, plus lapisan spray wax carnauba efek daun talas.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Paket Snow Wash + Jamur Kaca + Waxing" data-wa-harga="Rp 120.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Booking Paket Hemat
+                            </a>
                         </div>
-                        <p>Khusus NMAX, PCX, Aerox, ADV, XMAX, Ninja, CBR. Detailing menyeluruh sela suspensi monoshock, kaliper rem, dan bodi doff/gloss.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20Cuci%20Motor%20Maxi" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Cuci Maxi
-                        </a>
                     </div>
                 </div>
                 <!-- Layanan 4 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Cepat & Mengkilap</span>
-                            <img src="img/evevsteam/service_snow_wash.webp" alt="Snow Wash Express Mobil" class="service-photo">
+                            <span class="badge-pill">Higienis Total</span>
+                            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="Interior Deep Cleaning Cuci Jok dan Ozon Fogging Kabin" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_snow_foam.webp" alt="Icon Foam" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Snow Wash Express Mobil</a></h4>
-                                <span class="service-price-tag">Rp 35.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Interior Deep Cleaning &amp; Cuci Jok</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Rp 350.000</span>
+                                <span class="service-duration-tag">⏱ 120 Menit</span>
                             </div>
+                            <p class="service-card-desc">Ekstraksi basah jok kain/kulit, bersihkan plafon, karpet dasar &amp; sela dashboard, lalu ozon fogging antibakteri untuk membasmi bau rokok, muntah, dan apek AC.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Interior Deep Cleaning & Cuci Jok" data-wa-harga="Rp 350.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Booking Interior Care
+                            </a>
                         </div>
-                        <p>Cuci bodi luar cepat 15 menit menggunakan active snow foam tebal, bilas bersih, semir ban, tanpa antre lama saat Anda terburu-buru.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20Snow%20Wash%20Express" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Cuci Express
-                        </a>
                     </div>
                 </div>
                 <!-- Layanan 5 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Deep Gloss</span>
-                            <img src="img/evevsteam/service_kaki_motor.webp" alt="Semir Ban & Velg Detailing" class="service-photo">
+                            <span class="badge-pill">Aman Kelistrikan</span>
+                            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=900&q=80" alt="Engine Bay Detailing Pembersihan Ruang Mesin Mobil" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_semir_ban.webp" alt="Icon Tire" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Semir Ban & Velg Care</a></h4>
-                                <span class="service-price-tag">Rp 15.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Engine Bay Detailing (Ruang Mesin)</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Rp 150.000</span>
+                                <span class="service-duration-tag">⏱ 45 Menit</span>
                             </div>
+                            <p class="service-card-desc">Angkat kerak oli &amp; debu membandel di ruang mesin menggunakan dry-steam dan degreaser water-based khusus tanpa merusak ECU atau sensor, ditutup dressing plastik hitam elegan.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Engine Bay Detailing (Ruang Mesin)" data-wa-harga="Rp 150.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Booking Engine Bay
+                            </a>
                         </div>
-                        <p>Dressing silikon murni untuk ban hitam basah tahan hujan, pembersihan residu debu kampas rem pada velg palang mobil & motor.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20Semir%20Ban%20dan%20Velg" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Semir Ban
-                        </a>
                     </div>
                 </div>
                 <!-- Layanan 6 -->
-                <div class="col-lg-4 col-md-6 col-12 mb-4">
-                    <div class="ltn__service-item ltn__service-item-2 h-100 p-4" style="border-radius:16px;">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__service-item ltn__service-item-2 service-card-clean p-4">
                         <div class="service-photo-wrap">
-                            <span class="badge-pill">Anti Karat</span>
-                            <img src="img/evevsteam/service_cuci_kolong.webp" alt="Cuci Kolong Anti Karat" class="service-photo">
+                            <span class="badge-pill">Proteksi Sultan</span>
+                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=900&q=80" alt="Nano Ceramic Coating 9H dan Paint Correction Studio" loading="lazy" class="service-photo" style="object-fit: cover;">
                         </div>
-                        <div class="d-flex align-items-center gap-3 mb-2">
-                            <img src="img/evevsteam/icon_lift_hidrolik.webp" alt="Icon Kolong" class="icon-3d" style="width:48px;height:48px;margin-bottom:0;">
-                            <div>
-                                <h4 class="mb-1"><a href="#harga">Cuci Kolong Anti-Karat</a></h4>
-                                <span class="service-price-tag">Rp 50.000</span>
+                        <div class="service-card-body">
+                            <h4 class="service-card-title"><a href="#harga">Nano Ceramic Coating 9H &amp; Detailing</a></h4>
+                            <div class="service-meta-row">
+                                <span class="service-price-tag">Mulai Rp 1.500.000</span>
+                                <span class="service-duration-tag">⏱ 1–2 Hari</span>
                             </div>
+                            <p class="service-card-desc">Paint correction 3 tahap menghapus swirl mark hingga 95%, dilanjutkan 2 layer Nano Ceramic Coating 9H dengan efek daun talas ekstrem &amp; garansi kilap resmi 2 tahun.</p>
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Nano Ceramic Coating 9H & Detailing" data-wa-harga="Mulai Rp 1.500.000" target="_blank" rel="noopener noreferrer" class="btn btn-sm w-100 mt-auto" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;padding:11px 16px;">
+                                <i class="fab fa-whatsapp me-1"></i> Konsultasi Coating 9H
+                            </a>
                         </div>
-                        <p>Semprotan kolong bertekanan osilasi melumpuhkan lumpur tanah merah, pasir, dan air asin yang menempel di gardan & sasis kendaraan.</p>
-                        <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20Cuci%20Kolong%20Anti%20Karat" target="_blank" rel="noopener" class="btn btn-sm w-100 mt-2" style="background:#059669;color:#fff;border-radius:30px;font-weight:700;">
-                            <i class="fab fa-whatsapp me-1"></i> Pesan Cuci Kolong
-                        </a>
                     </div>
                 </div>
             </div>
@@ -507,36 +852,24 @@
     <!-- SERVICE AREA END -->
 
     <!-- COUNTER UP AREA START -->
-    <div class="ltn__counterup-area bg-image bg-overlay-theme-black-80 pt-60 pb-40" data-bs-bg="img/evevsteam/hero_detailing_studio.webp" style="background-image: url('img/evevsteam/hero_detailing_studio.webp');">
+    <div class="ltn__counterup-area bg-image bg-overlay-theme-black-80 pt-60 pb-40" data-bs-bg="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1600&q=80" style="background-image: url('https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-6 align-self-center text-center text-white mb-30">
-                    <div class="counter-icon mb-2">
-                        <img src="img/evevsteam/icon_snow_foam.webp" alt="Icon Salju" style="width:48px;height:48px;">
-                    </div>
-                    <h1 style="font-size:42px;font-weight:800;color:#059669;">15.000+</h1>
-                    <h6 style="color:#F1F5F9;">Kendaraan Dicuci Bersih</h6>
+                <div class="col-md-3 col-6 align-self-center text-center text-white mb-30">
+                    <h1 style="font-size:clamp(30px, 4vw, 44px);font-weight:800;color:#34d399;margin-bottom:6px;">15.000+</h1>
+                    <h6 style="color:#F1F5F9;font-size:14px;">Kendaraan Dicuci Bersih</h6>
                 </div>
-                <div class="col-md-3 col-sm-6 align-self-center text-center text-white mb-30">
-                    <div class="counter-icon mb-2">
-                        <img src="img/evevsteam/icon_lift_hidrolik.webp" alt="Icon Hidrolik" style="width:48px;height:48px;">
-                    </div>
-                    <h1 style="font-size:42px;font-weight:800;color:#059669;">4 Unit</h1>
-                    <h6 style="color:#F1F5F9;">Lift Hidrolik Cepat</h6>
+                <div class="col-md-3 col-6 align-self-center text-center text-white mb-30">
+                    <h1 style="font-size:clamp(30px, 4vw, 44px);font-weight:800;color:#34d399;margin-bottom:6px;">4 Pit</h1>
+                    <h6 style="color:#F1F5F9;font-size:14px;">Hidrolik X-Frame Cepat</h6>
                 </div>
-                <div class="col-md-3 col-sm-6 align-self-center text-center text-white mb-30">
-                    <div class="counter-icon mb-2">
-                        <img src="img/evevsteam/icon_motor_wash.webp" alt="Icon Waktu" style="width:48px;height:48px;">
-                    </div>
-                    <h1 style="font-size:42px;font-weight:800;color:#059669;">15 Menit</h1>
-                    <h6 style="color:#F1F5F9;">Rata-Rata Waktu Cuci</h6>
+                <div class="col-md-3 col-6 align-self-center text-center text-white mb-30">
+                    <h1 style="font-size:clamp(30px, 4vw, 44px);font-weight:800;color:#34d399;margin-bottom:6px;">15 Mnt</h1>
+                    <h6 style="color:#F1F5F9;font-size:14px;">Cuci Motor Express</h6>
                 </div>
-                <div class="col-md-3 col-sm-6 align-self-center text-center text-white mb-30">
-                    <div class="counter-icon mb-2">
-                        <img src="img/evevsteam/icon_nano_coating.webp" alt="Icon Rating" style="width:48px;height:48px;">
-                    </div>
-                    <h1 style="font-size:42px;font-weight:800;color:#059669;">99.8%</h1>
-                    <h6 style="color:#F1F5F9;">Tingkat Kepuasan Pelanggan</h6>
+                <div class="col-md-3 col-6 align-self-center text-center text-white mb-30">
+                    <h1 style="font-size:clamp(30px, 4vw, 44px);font-weight:800;color:#34d399;margin-bottom:6px;">4.9 ★</h1>
+                    <h6 style="color:#F1F5F9;font-size:14px;">Rating Pelanggan Jaktim</h6>
                 </div>
             </div>
         </div>
@@ -544,78 +877,163 @@
     <!-- COUNTER UP AREA END -->
 
     <!-- PRICING PLAN AREA START (#harga) -->
-    <div class="ltn__pricing-plan-area pt-90 pb-70" id="harga">
+    <div class="ltn__pricing-plan-area pt-90 pb-80" id="harga">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
-                        <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// DAFTAR PAKET HARGA //</h6>
-                        <h1 class="section-title">Harga Transparan Tanpa Biaya Tersembunyi</h1>
+                        <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// DAFTAR HARGA RESMI EVEVSTEAM //</h6>
+                        <h1 class="section-title">Harga Jujur &amp; Transparan Tanpa Biaya Tersembunyi</h1>
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
+
+            <!-- 3 Paket Populer -->
+            <div class="row g-4 justify-content-center mb-5">
                 <!-- Paket 1 -->
-                <div class="col-lg-4 col-sm-6">
-                    <div class="ltn__pricing-plan-item text-center p-4 mb-30" style="border-radius:16px;">
-                        <h3 class="pricing-title">Paket Express Motor</h3>
-                        <div class="pricing-price" style="margin:20px 0;">
-                            <h2 style="font-size:40px;font-weight:800;color:#059669;">Rp 20.000<span style="font-size:14px;color:#94a3b8;font-weight:400;"> / motor</span></h2>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__pricing-plan-item pricing-card-clean text-center p-4">
+                        <h3 class="pricing-title mb-1">Paket Express Motor</h3>
+                        <p class="small mb-2" style="color:var(--ltn__paragraph-color);">Bebek &amp; Matic Harian (15 Menit)</p>
+                        <div class="pricing-price my-3">
+                            <h2 style="font-size:38px;font-weight:800;color:#059669;margin:0;">Rp 18.000<span style="font-size:14px;color:#94a3b8;font-weight:500;"> / motor</span></h2>
                         </div>
-                        <ul class="text-start" style="line-height:2.2;margin-bottom:25px;list-style:none;padding-left:10px;">
-                            <li><i class="icon-done" style="color:#059669;"></i> Cuci Snow Foam pH Netral</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Semprot Tekanan Tinggi 150 Bar</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Bersih Sela Velg & Mesin</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Lap Kering Microfiber Anti Baret</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Semir Ban Silikon Mengkilap</li>
+                        <ul class="pricing-features">
+                            <li><span class="pricing-check">✓</span><span>Cuci Snow Foam pH Balance 7.0</span></li>
+                            <li><span class="pricing-check">✓</span><span>Semprot Kolong &amp; Mesin Tekanan Tinggi</span></li>
+                            <li><span class="pricing-check">✓</span><span>Bersih Sela Velg, Rantai &amp; CVT</span></li>
+                            <li><span class="pricing-check">✓</span><span>Pengeringan Microfiber Anti Baret</span></li>
+                            <li><span class="pricing-check">✓</span><span>Semir Ban Silikon Hitam Basah</span></li>
                         </ul>
-                        <div class="btn-wrapper">
-                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20ambil%20Paket%20Express%20Motor" target="_blank" rel="noopener" class="theme-btn-2 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
-                                Pilih Paket Ini
+                        <div class="btn-wrapper mt-auto">
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Paket Express Motor" data-wa-harga="Rp 18.000" target="_blank" rel="noopener noreferrer" class="theme-btn-2 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
+                                Pilih Paket Motor
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- Paket 2 -->
-                <div class="col-lg-4 col-sm-6">
-                    <div class="ltn__pricing-plan-item text-center p-4 mb-30" style="border-radius:16px;border:2px solid #059669 !important;position:relative;">
-                        <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;">PALING LARIS</span>
-                        <h3 class="pricing-title">Paket Hidrolik Mobil</h3>
-                        <div class="pricing-price" style="margin:20px 0;">
-                            <h2 style="font-size:40px;font-weight:800;color:#059669;">Rp 45.000<span style="font-size:14px;color:#94a3b8;font-weight:400;"> / mobil</span></h2>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__pricing-plan-item pricing-card-clean text-center p-4" style="border:2px solid #059669 !important;position:relative;">
+                        <span style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;font-size:12px;font-weight:800;padding:4px 16px;border-radius:999px;white-space:nowrap;">PALING LARIS</span>
+                        <h3 class="pricing-title mb-1">Paket Hidrolik Komplit</h3>
+                        <p class="small mb-2" style="color:var(--ltn__paragraph-color);">City Car / Hatchback (30–35 Menit)</p>
+                        <div class="pricing-price my-3">
+                            <h2 style="font-size:38px;font-weight:800;color:#059669;margin:0;">Rp 50.000<span style="font-size:14px;color:#94a3b8;font-weight:500;"> / mobil</span></h2>
                         </div>
-                        <ul class="text-start" style="line-height:2.2;margin-bottom:25px;list-style:none;padding-left:10px;">
-                            <li><i class="icon-done" style="color:#059669;"></i> Angkat Lift Hidrolik X-Frame</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Semprot Kolong & Bodi 150 Bar</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Shampo Salju Melimpah pH 7</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Pengeringan Microfiber 2 Teknisi</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Semir Ban Wet Look Tahan Hujan</li>
+                        <ul class="pricing-features">
+                            <li><span class="pricing-check">✓</span><span>Angkat Lift Hidrolik X-Frame Aman</span></li>
+                            <li><span class="pricing-check">✓</span><span>Cuci Kolong &amp; Sasis 150 Bar Anti Lumpur</span></li>
+                            <li><span class="pricing-check">✓</span><span>Snow Wash pH Netral + Vacuum Kabin &amp; Bagasi</span></li>
+                            <li><span class="pricing-check">✓</span><span>Pengeringan 2 Teknisi Microfiber Bersih</span></li>
+                            <li><span class="pricing-check">✓</span><span>Semir Ban Wet-Look + Parfum Kabin Segar</span></li>
                         </ul>
-                        <div class="btn-wrapper">
-                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20ambil%20Paket%20Hidrolik%20Mobil" target="_blank" rel="noopener" class="theme-btn-1 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
-                                Pilih Paket Ini
+                        <div class="btn-wrapper mt-auto">
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Paket Hidrolik Mobil Komplit" data-wa-harga="Rp 50.000" target="_blank" rel="noopener noreferrer" class="theme-btn-1 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
+                                Pilih Paket Hidrolik
                             </a>
                         </div>
                     </div>
                 </div>
                 <!-- Paket 3 -->
-                <div class="col-lg-4 col-sm-6">
-                    <div class="ltn__pricing-plan-item text-center p-4 mb-30" style="border-radius:16px;">
-                        <h3 class="pricing-title">Paket Komplit + Interior</h3>
-                        <div class="pricing-price" style="margin:20px 0;">
-                            <h2 style="font-size:40px;font-weight:800;color:#059669;">Rp 65.000<span style="font-size:14px;color:#94a3b8;font-weight:400;"> / komplit</span></h2>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="ltn__pricing-plan-item pricing-card-clean text-center p-4">
+                        <h3 class="pricing-title mb-1">Paket Kinclong + Wax</h3>
+                        <p class="small mb-2" style="color:var(--ltn__paragraph-color);">Cuci + Jamur Kaca + Wax (60 Menit)</p>
+                        <div class="pricing-price my-3">
+                            <h2 style="font-size:38px;font-weight:800;color:#059669;margin:0;">Rp 120.000<span style="font-size:14px;color:#94a3b8;font-weight:500;"> / mobil</span></h2>
                         </div>
-                        <ul class="text-start" style="line-height:2.2;margin-bottom:25px;list-style:none;padding-left:10px;">
-                            <li><i class="icon-done" style="color:#059669;"></i> Seluruh Fitur Paket Hidrolik</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Vacuum Karpet, Jok & Bagasi</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Lap Dashboard & Sela Pintu</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Semprot Parfum Kabin Segar</li>
-                            <li><i class="icon-done" style="color:#059669;"></i> Dressing Karet & Plastik Luar</li>
+                        <ul class="pricing-features">
+                            <li><span class="pricing-check">✓</span><span>Seluruh Fitur Paket Hidrolik Komplit</span></li>
+                            <li><span class="pricing-check">✓</span><span>Pembersihan Jamur Kaca Depan &amp; Samping</span></li>
+                            <li><span class="pricing-check">✓</span><span>Hydrophobic Carnauba Spray Wax 1 Layer</span></li>
+                            <li><span class="pricing-check">✓</span><span>Dressing Dashboard &amp; Trim Plastik Luar</span></li>
+                            <li><span class="pricing-check">✓</span><span>Efek Daun Talas &amp; Kilap Basah Tahan Lama</span></li>
                         </ul>
-                        <div class="btn-wrapper">
-                            <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20ambil%20Paket%20Komplit%20Interior" target="_blank" rel="noopener" class="theme-btn-2 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
-                                Pilih Paket Ini
+                        <div class="btn-wrapper mt-auto">
+                            <a href="https://wa.me/62895323418658" data-wa-paket="Paket Snow Wash + Jamur Kaca + Waxing" data-wa-harga="Rp 120.000" target="_blank" rel="noopener noreferrer" class="theme-btn-2 btn w-100" style="background:#059669;color:#fff;border-radius:50px;font-weight:700;">
+                                Pilih Paket Kinclong
                             </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabel Daftar Harga Lengkap Berdasarkan Jenis Kendaraan -->
+            <div class="row justify-content-center">
+                <div class="col-lg-11">
+                    <div class="price-table-card">
+                        <div class="p-4 border-bottom" style="border-color:rgba(148,163,184,0.2) !important;">
+                            <h3 class="mb-1" style="font-size:20px;font-weight:800;">Daftar Tarif Lengkap Berdasarkan Tipe Kendaraan</h3>
+                            <p class="mb-0" style="font-size:14px;">Harga sudah termasuk air filtrasi, shampo pH balance, lap microfiber, dan semir ban.</p>
+                        </div>
+                        <div class="price-table-responsive">
+                            <table class="price-list-table">
+                                <thead>
+                                    <tr>
+                                        <th>Kategori</th>
+                                        <th>Tipe Kendaraan / Layanan</th>
+                                        <th>Estimasi</th>
+                                        <th>Tarif</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Cuci Motor</span></td>
+                                        <td>Motor Bebek / Matic Kecil (Beat, Mio, Scoopy, Vario)</td>
+                                        <td>15 Menit</td>
+                                        <td class="price-amount-cell">Rp 18.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Cuci Motor</span></td>
+                                        <td>Motor Matic Besar / Sport (NMAX, PCX, Aerox, ADV, CBR, Ninja)</td>
+                                        <td>20 Menit</td>
+                                        <td class="price-amount-cell">Rp 28.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Hidrolik Mobil</span></td>
+                                        <td>City Car / Hatchback (Brio, Agya, Ayla, Yaris, Raize, Jazz)</td>
+                                        <td>30 Menit</td>
+                                        <td class="price-amount-cell">Rp 50.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Hidrolik Mobil</span></td>
+                                        <td>Medium / MPV (Avanza, Veloz, Xpander, Ertiga, Stargazer)</td>
+                                        <td>35 Menit</td>
+                                        <td class="price-amount-cell">Rp 55.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Hidrolik Mobil</span></td>
+                                        <td>SUV / Large MPV (Innova Zenix, Fortuner, Pajero, CR-V, Alphard)</td>
+                                        <td>45 Menit</td>
+                                        <td class="price-amount-cell">Rp 65.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Perawatan</span></td>
+                                        <td>Snow Wash + Pembersihan Jamur Kaca + Hydrophobic Wax</td>
+                                        <td>60 Menit</td>
+                                        <td class="price-amount-cell">Rp 120.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Detailing</span></td>
+                                        <td>Engine Bay Detailing (Pembersihan Ruang Mesin Aman Sensor)</td>
+                                        <td>45 Menit</td>
+                                        <td class="price-amount-cell">Rp 150.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Detailing</span></td>
+                                        <td>Interior Deep Cleaning, Cuci Jok &amp; Ozon Fogging Kabin</td>
+                                        <td>120 Menit</td>
+                                        <td class="price-amount-cell">Rp 350.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="price-cat-pill">Coating 9H</span></td>
+                                        <td>Paint Correction 3-Step + Nano Ceramic Coating 9H (Garansi 2 Thn)</td>
+                                        <td>1–2 Hari</td>
+                                        <td class="price-amount-cell">Mulai Rp 1.500.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -624,8 +1042,77 @@
     </div>
     <!-- PRICING PLAN AREA END -->
 
+    <!-- QUICK WHATSAPP BOOKING FORM (#booking) -->
+    <div class="section-bg-1 pt-80 pb-80" id="booking">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="booking-wa-box">
+                        <div class="text-center mb-4">
+                            <h6 class="section-subtitle ltn__secondary-color" style="color:#059669 !important;">// RESERVASI TANPA ANTRE //</h6>
+                            <h2 class="section-title mb-2" style="font-size:clamp(24px, 3.5vw, 34px);">Booking Slot Antrean Langsung ke WhatsApp</h2>
+                            <p class="mb-0" style="font-size:14.5px;">Isi data singkat di bawah ini, pesan reservasi Anda otomatis terformat rapi dan terkirim ke admin WhatsApp kami (+62 895-3234-18658).</p>
+                        </div>
+                        <form id="booking-wa-form" class="appointment-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone">Nomor WhatsApp</label>
+                                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="Contoh: 0812-3456-7890" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="vehicle">Jenis &amp; Tipe Kendaraan</label>
+                                    <input type="text" id="vehicle" name="vehicle" class="form-control" placeholder="Contoh: Honda Brio / Yamaha NMAX" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="service">Pilih Paket Layanan</label>
+                                    <select id="service" name="service" class="form-select">
+                                        <option value="Cuci Steam Hidrolik Mobil Komplit (Mulai Rp 50.000)">Cuci Steam Hidrolik Mobil Komplit (Mulai Rp 50.000)</option>
+                                        <option value="Cuci Steam Motor Express (Mulai Rp 18.000)">Cuci Steam Motor Express (Mulai Rp 18.000)</option>
+                                        <option value="Paket Snow Wash + Jamur Kaca + Waxing (Rp 120.000)">Paket Snow Wash + Jamur Kaca + Waxing (Rp 120.000)</option>
+                                        <option value="Engine Bay Detailing Ruang Mesin (Rp 150.000)">Engine Bay Detailing Ruang Mesin (Rp 150.000)</option>
+                                        <option value="Interior Deep Cleaning & Cuci Jok (Rp 350.000)">Interior Deep Cleaning &amp; Cuci Jok (Rp 350.000)</option>
+                                        <option value="Nano Ceramic Coating 9H (Mulai Rp 1.500.000)">Nano Ceramic Coating 9H (Mulai Rp 1.500.000)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="date">Tanggal Kedatangan</label>
+                                    <input type="date" id="date" name="date" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="time">Jam Kedatangan (WIB)</label>
+                                    <select id="time" name="time" class="form-select">
+                                        <option value="08:00">08:00 WIB</option>
+                                        <option value="10:00" selected>10:00 WIB</option>
+                                        <option value="13:00">13:00 WIB</option>
+                                        <option value="15:00">15:00 WIB</option>
+                                        <option value="17:00">17:00 WIB</option>
+                                        <option value="19:00">19:00 WIB</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message">Catatan Tambahan (Opsional)</label>
+                                    <textarea id="message" name="message" rows="2" class="form-control" placeholder="Misal: mobil ceper pakai body kit, noda kopi di jok depan, atau minta fokus kolong..."></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-2">
+                                    <button type="submit" class="btn btn-effect-1 px-5 py-3" style="background:#059669;color:#ffffff;border:none;border-radius:50px;font-weight:800;font-size:15px;">
+                                        <i class="fab fa-whatsapp me-2"></i> Kirim Booking via WhatsApp
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- QUICK WHATSAPP BOOKING FORM END -->
+
     <!-- FAQ AREA START (#faq) -->
-    <div class="ltn__faq-area pb-90" id="faq">
+    <div class="ltn__faq-area pt-80 pb-90" id="faq">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -639,43 +1126,43 @@
                 <div class="col-lg-8">
                     <div class="ltn__faq-inner ltn__faq-inner-2">
                         <div id="accordion_2">
-                            <div class="card mb-3" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
-                                <h6 class="collapsed ltn__card-title p-3 mb-0" data-bs-toggle="collapse" data-bs-target="#faq-item-1" aria-expanded="false" style="cursor:pointer;font-weight:700;">
-                                    Apakah hidrolik mobil di evevsteam aman untuk mobil ceper / body kit?
+                            <div class="card faq-card-clean mb-3">
+                                <h6 class="ltn__card-title p-3 mb-0" data-bs-toggle="collapse" data-bs-target="#faq-item-1" aria-expanded="true" style="cursor:pointer;font-weight:700;">
+                                    Apakah hidrolik mobil di evevsteam aman untuk mobil ceper atau memakai body kit?
                                 </h6>
-                                <div id="faq-item-1" class="collapse" data-bs-parent="#accordion_2">
-                                    <div class="card-body p-3 pt-0 text-muted">
-                                        Sangat aman. Kami menggunakan lift hidrolik tipe X-frame dengan tatakan karet tebal yang dapat disesuaikan dengan ground clearance kendaraan, sehingga tidak membentur bumper, sideskirt, maupun pipa knalpot.
+                                <div id="faq-item-1" class="collapse show" data-bs-parent="#accordion_2">
+                                    <div class="card-body p-3 pt-0">
+                                        Sangat aman. Kami memakai lift hidrolik tipe X-Frame dengan bantalan karet tebal yang posisinya disesuaikan titik tumpu sasis pabrik, sehingga tidak menyentuh bumper, sideskirt, maupun pipa knalpot.
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-3" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+                            <div class="card faq-card-clean mb-3">
                                 <h6 class="collapsed ltn__card-title p-3 mb-0" data-bs-toggle="collapse" data-bs-target="#faq-item-2" aria-expanded="false" style="cursor:pointer;font-weight:700;">
-                                    Apakah shampo yang digunakan membuat cat kusam atau mengikis coating?
+                                    Apakah shampo salju aman untuk mobil yang sudah Nano Coating atau cat doff?
                                 </h6>
                                 <div id="faq-item-2" class="collapse" data-bs-parent="#accordion_2">
-                                    <div class="card-body p-3 pt-0 text-muted">
-                                        Tidak. Kami hanya menggunakan shampo salju bersertifikasi pH balance 7.0 yang bebas detergen keras. Sangat aman untuk mobil/motor yang sudah dilapis nano ceramic coating, paint protection film (PPF), maupun cat doff/matte.
+                                    <div class="card-body p-3 pt-0">
+                                        100% aman. Shampo snow wash kami ber-pH netral 7.0 tanpa detergen keras maupun silikon pemudar cat doff, sehingga aman untuk kendaraan yang sudah di-coating, PPF, maupun warna matte.
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-3" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+                            <div class="card faq-card-clean mb-3">
                                 <h6 class="collapsed ltn__card-title p-3 mb-0" data-bs-toggle="collapse" data-bs-target="#faq-item-3" aria-expanded="false" style="cursor:pointer;font-weight:700;">
-                                    Berapa lama rata-rata waktu pengerjaan cuci mobil dan motor?
+                                    Berapa lama estimasi waktu pengerjaan cuci mobil dan motor?
                                 </h6>
                                 <div id="faq-item-3" class="collapse" data-bs-parent="#accordion_2">
-                                    <div class="card-body p-3 pt-0 text-muted">
-                                        Untuk cuci motor express berkisar antara 15 - 20 menit. Untuk cuci mobil hidrolik komplit berkisar antara 30 - 45 menit dikerjakan oleh 2 teknisi sekaligus.
+                                    <div class="card-body p-3 pt-0">
+                                        Cuci motor express selesai dalam 15–20 menit di jalur khusus roda dua. Cuci mobil hidrolik komplit memakan waktu sekitar 30–45 menit karena dikerjakan serentak oleh 2 teknisi terlatih.
                                     </div>
                                 </div>
                             </div>
-                            <div class="card mb-3" style="border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+                            <div class="card faq-card-clean mb-3">
                                 <h6 class="collapsed ltn__card-title p-3 mb-0" data-bs-toggle="collapse" data-bs-target="#faq-item-4" aria-expanded="false" style="cursor:pointer;font-weight:700;">
-                                    Apakah perlu booking terlebih dahulu atau bisa langsung datang?
+                                    Apakah bisa langsung datang (walk-in) atau wajib booking dulu?
                                 </h6>
                                 <div id="faq-item-4" class="collapse" data-bs-parent="#accordion_2">
-                                    <div class="card-body p-3 pt-0 text-muted">
-                                        Anda bisa langsung datang (walk-in) setiap hari. Namun untuk akhir pekan (Sabtu & Minggu), Anda disarankan booking antrean via WhatsApp untuk mendapatkan slot tanpa menunggu lama.
+                                    <div class="card-body p-3 pt-0">
+                                        Anda bebas datang langsung setiap hari pukul 07:30–21:00 WIB. Khusus akhir pekan (Sabtu–Minggu) atau paket detailing, kami sarankan booking slot lewat WhatsApp agar langsung masuk pit tanpa menunggu lama.
                                     </div>
                                 </div>
                             </div>
@@ -701,15 +1188,15 @@
                                     <span style="font-family:'Rajdhani',sans-serif;font-size:28px;font-weight:800;letter-spacing:1px;color:#FFFFFF;line-height:1;">evev<span style="color:#059669;">steam</span></span>
                                 </a>
                             </div>
-                            <p style="color:#F1F5F9 !important;opacity:1;line-height:1.7;margin-bottom:20px;">
-                                Pusat cuci steam hidrolik motor dan mobil modern dengan shampoo salju pH balance, semprotan bertekanan tinggi 150 bar, vacuum interior mendalam, poles kaca, nano ceramic coating, dan teknisi terlatih bebas baret.
+                            <p data-config="deskripsi" style="color:#F1F5F9 !important;opacity:1;line-height:1.7;margin-bottom:20px;">
+                                Pusat cuci steam hidrolik mobil dan motor profesional di Jakarta Timur dengan shampo salju pH balance 7.0, semprotan kolong bertekanan 150 bar, vacuum interior mendalam, poles kaca bebas jamur, nano ceramic coating 9H, dan teknisi microfiber berpengalaman.
                             </p>
                             <div class="ltn__social-media mt-20">
                                 <ul>
-                                    <li><a href="https://instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
-                                    <li><a href="https://tiktok.com" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a></li>
-                                    <li><a href="https://youtube.com" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a></li>
-                                    <li><a href="https://wa.me/62895323418658" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram evevsteam"><i class="fab fa-instagram"></i></a></li>
+                                    <li><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok evevsteam"><i class="fab fa-tiktok"></i></a></li>
+                                    <li><a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube evevsteam"><i class="fab fa-youtube"></i></a></li>
+                                    <li><a href="https://wa.me/62895323418658" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp evevsteam"><i class="fab fa-whatsapp"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -723,7 +1210,7 @@
                                     <li><a href="#layanan" style="color:#E2E8F0 !important;">Layanan Cuci</a></li>
                                     <li><a href="#keunggulan" style="color:#E2E8F0 !important;">Keunggulan Kami</a></li>
                                     <li><a href="#harga" style="color:#E2E8F0 !important;">Daftar Paket Harga</a></li>
-                                    <li><a href="#tentang" style="color:#E2E8F0 !important;">Tentang Kami</a></li>
+                                    <li><a href="#booking" style="color:#E2E8F0 !important;">Booking Antrean</a></li>
                                     <li><a href="#faq" style="color:#E2E8F0 !important;">Tanya Jawab (FAQ)</a></li>
                                 </ul>
                             </div>
@@ -734,11 +1221,11 @@
                             <h4 class="footer-title" style="color:#FFFFFF !important;font-weight:700;">Layanan Unggulan</h4>
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Cuci Salju Hidrolik Mobil</a></li>
-                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Cuci Steam Motor Matic & Sport</a></li>
-                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Cuci Kolong Hidrolik Anti-Karat</a></li>
-                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Poles Kaca & Jamur Waterspot</a></li>
-                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Interior Vacuum & Ozon Fogging</a></li>
+                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Cuci Steam Hidrolik Mobil</a></li>
+                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Cuci Steam Motor Express</a></li>
+                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Snow Wash + Jamur Kaca + Wax</a></li>
+                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Interior Deep Cleaning &amp; Jok</a></li>
+                                    <li><a href="#layanan" style="color:#E2E8F0 !important;">Engine Bay Detailing</a></li>
                                     <li><a href="#layanan" style="color:#E2E8F0 !important;">Nano Ceramic Coating 9H</a></li>
                                 </ul>
                             </div>
@@ -750,19 +1237,19 @@
                             <ul style="list-style:none;padding-left:0;">
                                 <li style="color:#F1F5F9 !important;margin-bottom:12px;display:flex;align-items:flex-start;gap:10px;">
                                     <i class="icon-placeholder" style="color:#059669;font-size:18px;margin-top:4px;"></i>
-                                    <span>Jl. Otista Raya No. 88, Jatinegara, Jakarta Timur</span>
+                                    <span data-config="alamat">Jl. Otista Raya No. 88, Bidara Cina, Jatinegara, Jakarta Timur 13330</span>
                                 </li>
                                 <li style="color:#F1F5F9 !important;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
                                     <i class="icon-phone-call" style="color:#059669;font-size:18px;"></i>
-                                    <a href="https://wa.me/62895323418658" style="color:#E2E8F0 !important;">0895-3234-18658</a>
+                                    <a href="https://wa.me/62895323418658" style="color:#E2E8F0 !important;" data-config="whatsappDisplay">+62 895-3234-18658</a>
                                 </li>
                                 <li style="color:#F1F5F9 !important;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
                                     <i class="icon-mail" style="color:#059669;font-size:18px;"></i>
-                                    <a href="mailto:evevdigital@gmail.com" style="color:#E2E8F0 !important;">evevdigital@gmail.com</a>
+                                    <a href="mailto:evevdigital@gmail.com" style="color:#E2E8F0 !important;" data-config="email">evevdigital@gmail.com</a>
                                 </li>
                                 <li style="color:#F1F5F9 !important;margin-bottom:12px;display:flex;align-items:center;gap:10px;">
                                     <i class="icon-clock" style="color:#059669;font-size:18px;"></i>
-                                    <span>Buka Setiap Hari: 07:30 - 21:00 WIB</span>
+                                    <span data-config="jamBukaText">Setiap Hari: 07:30 - 21:00 WIB</span>
                                 </li>
                             </ul>
                         </div>
@@ -783,7 +1270,7 @@
                     <div class="col-md-6 col-12 text-center text-md-end">
                         <div class="ltn__copyright-right">
                             <span class="footer-maker" style="color:#94A3B8 !important;font-size:14px;">
-                                Ditenagai oleh <a href="https://evevdigital.my.id" target="_blank" rel="noopener" style="color:#059669 !important;font-weight:700;">EvEvDigital</a>
+                                Ditenagai oleh <a href="https://evevdigital.my.id" target="_blank" rel="noopener noreferrer" style="color:#059669 !important;font-weight:700;">EvEvDigital</a>
                             </span>
                         </div>
                     </div>
@@ -793,38 +1280,33 @@
     </footer>
     <!-- FOOTER AREA END -->
 
-    <!-- Floating WhatsApp Single Button -->
-    <a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20mau%20booking%20antrean%20cuci%20kendaraan" target="_blank" rel="noopener" class="floating-wa-btn" title="Chat WhatsApp evevsteam">
-        <i class="fab fa-whatsapp"></i>
-        <span>Chat & Booking Antrean</span>
-    </a>
-
 </div>
 <!-- Body main wrapper end -->
 
-    <!-- All JS Plugins -->
-    <script src="js/plugins.js"></script>
-    <!-- Main JS -->
-    <script src="js/main.js"></script>
-    <script src="js/theme-toggle.js"></script>
-    <script src="js/profil-usaha.js"></script>
-  
-
 <!-- Floating Template Switcher Bar -->
-<div id="evev-template-switcher" style="position: fixed; bottom: 25px; left: 50%; transform: translateX(-50%); z-index: 99999; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(12px); padding: 8px 14px; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.18); display: flex; align-items: center; gap: 8px; font-family: 'Plus Jakarta Sans', sans-serif;">
-    <span style="color: #06B6D4; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; padding: 0 6px;">PILIH TEMPLATE:</span>
-    <a href="template-1.html" class="switcher-pill active" style="padding: 7px 15px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; background: #0284C7; color: #FFFFFF;">1. Cuci Salju Hidrolik</a>
-    <a href="template-2.html" class="switcher-pill " style="padding: 7px 15px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; background: rgba(255,255,255,0.08); color: #CBD5E1;">2. Waterless &amp; Ceramic Wax</a>
-    <a href="template-3.html" class="switcher-pill " style="padding: 7px 15px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; background: rgba(255,255,255,0.08); color: #CBD5E1;">3. Studio Detailing &amp; Coating</a>
+<div id="evev-template-switcher" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+    <span style="color: #06B6D4; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; padding: 0 6px; white-space: nowrap;">TEMPLATE:</span>
+    <a href="template-1.html" class="switcher-pill active" style="padding: 7px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; background: #059669; color: #FFFFFF;">1. Cuci Salju Hidrolik</a>
+    <a href="template-2.html" class="switcher-pill" style="padding: 7px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; background: rgba(255,255,255,0.08); color: #CBD5E1;">2. Waterless &amp; Ceramic Wax</a>
+    <a href="template-3.html" class="switcher-pill" style="padding: 7px 14px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; white-space: nowrap; transition: all 0.2s ease; background: rgba(255,255,255,0.08); color: #CBD5E1;">3. Studio Detailing &amp; Coating</a>
 </div>
 
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/62895323418658?text=Halo%20evevsteam,%20saya%20ingin%20booking%20antrean%20cuci%20steam%20detail" target="_blank" rel="noopener noreferrer" style="position: fixed; bottom: 25px; right: 25px; z-index: 99999; background: #25D366; color: white; border-radius: 50px; padding: 12px 22px; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 8px 25px rgba(37, 211, 102, 0.45); font-family: 'Plus Jakarta Sans', sans-serif; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-    <i class="fa fa-whatsapp" style="font-size: 22px;"></i>
+<!-- Single Floating WhatsApp Button -->
+<a href="https://wa.me/62895323418658?text=Halo%20evevsteam%2C%20saya%20ingin%20booking%20antrean%20cuci%20steam%20hidrolik%20hari%20ini." data-wa-text="Halo evevsteam, saya ingin booking antrean cuci steam hidrolik hari ini. Mohon info slot tersedia." target="_blank" rel="noopener noreferrer" class="floating-wa-btn" title="Chat & Booking Antrean via WhatsApp evevsteam" aria-label="Chat WhatsApp evevsteam">
+    <svg width="22" height="22" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path d="M16.002 3C8.832 3 3 8.832 3 16.002c0 2.54.732 4.91 1.995 6.912L3.55 29l6.265-1.644A12.94 12.94 0 0 0 16.002 29C23.172 29 29 23.172 29 16.002S23.172 3 16.002 3zm0 23.62c-1.97 0-3.89-.53-5.565-1.53l-.4-.238-3.718.975.993-3.625-.26-.415a10.56 10.56 0 0 1-1.63-5.64c0-5.833 4.746-10.58 10.58-10.58 5.834 0 10.58 4.747 10.58 10.58 0 5.833-4.746 10.573-10.58 10.573zm5.803-7.92c-.318-.16-1.882-.928-2.174-1.034-.292-.106-.504-.16-.716.16-.212.318-.822 1.034-1.008 1.246-.186.212-.372.238-.69.08-.318-.16-1.344-.495-2.56-1.58-.946-.844-1.585-1.886-1.77-2.204-.186-.318-.02-.49.14-.648.143-.143.318-.372.477-.558.16-.186.212-.318.318-.53.106-.212.053-.398-.027-.558-.08-.16-.716-1.725-.98-2.362-.258-.62-.52-.536-.716-.546-.185-.01-.398-.01-.61-.01s-.557.08-.848.398c-.292.318-1.114 1.088-1.114 2.654 0 1.565 1.14 3.078 1.3 3.29.158.212 2.244 3.428 5.437 4.806.76.328 1.352.524 1.814.67.762.242 1.456.208 2.005.126.612-.092 1.882-.77 2.147-1.512.265-.742.265-1.378.186-1.512-.08-.133-.292-.212-.61-.372z"/>
+    </svg>
     <span>Booking Antrean WA</span>
 </a>
 
+    <!-- All JS Plugins -->
+    <script src="js/plugins.js"></script>
+    <!-- Business Profile Data (loaded before theme-toggle.js) -->
+    <script src="js/profil-usaha.js"></script>
+    <!-- Theme Toggle -->
+    <script src="js/theme-toggle.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
 </body>
 </html>
-

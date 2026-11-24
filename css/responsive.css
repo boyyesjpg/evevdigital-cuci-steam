@@ -1,136 +1,551 @@
-/* ====================================================
-    Responsive
-==================================================== */
-/* Desktop 1200 - up */
+/* ==========================================================================
+   📱 EVEVSTEAM — Responsive Ergonomics & Zero-Truncation Mobile Stylesheet
+   Optimized for Mobile 360px–414px, Tablet 768px–991px, & Desktop 1200px+
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. GLOBAL ZERO HORIZONTAL OVERFLOW & READABILITY SAFEGUARDS
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+.body-wrapper,
+main,
+section,
+header,
+footer {
+  max-width: 100%;
+}
+
+.body-wrapper {
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   2. OVERRIDE LEGACY / STALE TRUNCATION RULES (MENU & HARGA 100% TERBACA)
+   -------------------------------------------------------------------------- */
+.ltn__service-item,
+.ltn__service-item-2,
+.ltn__pricing-plan-item,
+.ltn__feature-item,
+.service-card-clean,
+.pricing-card-clean,
+.service-card-body,
+.ltn__service-item .service-card-title,
+.ltn__service-item .service-card-desc,
+.ltn__service-item h3,
+.ltn__service-item h4,
+.ltn__service-item p,
+.ltn__pricing-plan-item .pricing-title,
+.ltn__pricing-plan-item .pricing-price,
+.ltn__pricing-plan-item .pricing-features,
+.ltn__pricing-plan-item .pricing-features li,
+.ltn__pricing-plan-item ul li,
+.service-meta-row,
+.service-price-tag,
+.service-duration-tag,
+.price-table-card {
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+.ltn__service-item,
+.ltn__service-item-2,
+.ltn__pricing-plan-item,
+.service-card-clean,
+.pricing-card-clean,
+.service-card-body,
+.ltn__service-item .service-card-title,
+.ltn__service-item .service-card-desc,
+.ltn__pricing-plan-item .pricing-title,
+.ltn__pricing-plan-item .pricing-features li,
+.ltn__pricing-plan-item ul li {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere;
+  height: auto;
+  max-height: none !important;
+  -webkit-line-clamp: unset !important;
+}
+
+/* Keep photo containers neatly clipped for rounded borders */
+.service-photo-wrap {
+  overflow: hidden !important;
+}
+
+/* Keep price tags & badges legible without breaking mid-number */
+.service-price-tag,
+.service-duration-tag,
+.price-amount-cell,
+.price-cat-pill {
+  overflow: visible !important;
+  max-width: 100% !important;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   3. DESKTOP (1200px+)
+   -------------------------------------------------------------------------- */
 @media (min-width: 1200px) {
-    .container {
-        max-width: 1200px;
-    }
+  .container {
+    max-width: 1200px;
+  }
 }
 
-/* Normal desktop :992px. (Laptop 14") */
+/* --------------------------------------------------------------------------
+   4. NORMAL DESKTOP / LAPTOP 14" (992px – 1199px)
+   -------------------------------------------------------------------------- */
 @media (min-width: 992px) and (max-width: 1199px) {
-    /* Global */
-    h1 {
-        font-size: 30px;
-    }
-    h2 {
-        font-size: 26px;
-    }
-    h3 {
-        font-size: 22px;
-    }
-    h4 {
-        font-size: 20px;
-    }
-    h5 {
-        font-size: 18px;
-    }
-    h6 {
-        font-size: 16px;
-    }
-
+  h1 {
+    font-size: 32px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  h4 {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 18px;
+  }
+  h6 {
+    font-size: 16px;
+  }
 }
 
- 
-/* Tablet device :768px. */
+/* --------------------------------------------------------------------------
+   5. TABLET (768px – 991px)
+   -------------------------------------------------------------------------- */
 @media (min-width: 768px) and (max-width: 991px) {
-    /* Global */
-    body {
-        font-size: 14px;
-    }
-    h1 {
-        font-size: 26px;
-    }
-    h2 {
-        font-size: 22px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-    h4 {
-        font-size: 18px;
-    }
-    h5 {
-        font-size: 16px;
-    }
-    h6 {
-        font-size: 15px;
-    }
-    p {
-        font-size: 14px;
-    }
+  body {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 28px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+  h4 {
+    font-size: 18px;
+  }
+  h5 {
+    font-size: 16px;
+  }
+  h6 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 15px;
+  }
 
+  .ltn__slide-item {
+    min-height: 540px !important;
+    padding: 100px 0 70px !important;
+  }
 }
 
- 
-/* small mobile :320px. */
+/* --------------------------------------------------------------------------
+   6. MOBILE GENERAL (< 768px) — THUMB-FRIENDLY CTAs (min-height: 48px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 767px) {
-    /* Global */
-    body {
-        font-size: 14px;
-    }
-    h1 {
-        font-size: 24px;
-    }
-    h2 {
-        font-size: 20px;
-    }
-    h3 {
-        font-size: 18px;
-    }
-    h4 {
-        font-size: 17px;
-    }
-    h5 {
-        font-size: 16px;
-    }
-    h6 {
-        font-size: 14px;
-    }
-    p {
-        font-size: 14px;
-    }
+  body {
+    font-size: 15px;
+    line-height: 1.65;
+    padding-bottom: 132px !important;
+  }
 
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  h1,
+  .section-title {
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+  }
+  h2 {
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+  }
+  h3 {
+    font-size: 19px !important;
+    line-height: 1.35 !important;
+  }
+  h4 {
+    font-size: 17.5px !important;
+    line-height: 1.35 !important;
+  }
+  h5 {
+    font-size: 16px !important;
+  }
+  h6 {
+    font-size: 13.5px !important;
+  }
+  p,
+  li {
+    font-size: 14.5px;
+  }
+
+  /* Compact Top Bar on Mobile */
+  .ltn__header-top-area {
+    padding: 8px 0 !important;
+  }
+  .ltn__header-top-area .top-bar-right {
+    text-align: left !important;
+    margin-top: 4px;
+  }
+  .ltn__top-bar-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 0;
+    margin: 0;
+  }
+  .ltn__top-bar-menu ul li {
+    margin: 0 !important;
+    font-size: 12.5px !important;
+    line-height: 1.4;
+  }
+
+  /* Header Middle Ergonomics */
+  .ltn__header-middle-area {
+    padding: 10px 0 !important;
+  }
+  .theme-toggle-btn,
+  .mobile-menu-toggle a {
+    min-width: 48px !important;
+    min-height: 48px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Hero Section Mobile Spacing */
+  .ltn__slide-item {
+    min-height: 520px !important;
+    padding: 96px 0 64px !important;
+  }
+  .slide-title {
+    font-size: clamp(26px, 7.2vw, 34px) !important;
+    line-height: 1.2 !important;
+    margin-bottom: 14px !important;
+  }
+  .slide-brief p {
+    font-size: 14.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Thumb-Friendly Buttons & Form Controls (min-height: 48px) */
+  .btn,
+  a.btn,
+  button.btn,
+  .theme-btn-1,
+  .theme-btn-2,
+  .btn-evev-primary,
+  .btn-evev-cyan,
+  .btn-evev-violet,
+  .floating-wa-btn,
+  .booking-wa-box button[type="submit"],
+  .ltn__utilize-buttons a {
+    min-height: 48px !important;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    touch-action: manipulation;
+    line-height: 1.3 !important;
+  }
+
+  .btn-wrapper {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn-wrapper .btn,
+  .btn-wrapper a {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .booking-wa-box .form-control,
+  .booking-wa-box .form-select,
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="date"],
+  select {
+    min-height: 48px !important;
+    font-size: 16px !important; /* Prevents iOS Safari auto-zoom on focus */
+  }
+
+  /* FAQ Tap Target Ergonomics */
+  .faq-card-clean .ltn__card-title {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px !important;
+    font-size: 15px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Section Padding Rhythm */
+  .pt-90 {
+    padding-top: 56px !important;
+  }
+  .pt-80 {
+    padding-top: 52px !important;
+  }
+  .pb-90 {
+    padding-bottom: 56px !important;
+  }
+  .pb-80 {
+    padding-bottom: 52px !important;
+  }
+  .pb-70 {
+    padding-bottom: 48px !important;
+  }
+  .pb-60 {
+    padding-bottom: 44px !important;
+  }
+
+  /* Cards Spacing on Mobile */
+  .ltn__service-item.service-card-clean,
+  .ltn__pricing-plan-item.pricing-card-clean,
+  .ltn__feature-item {
+    padding: 20px 18px !important;
+  }
+
+  .pricing-price h2,
+  .pricing-price-amount {
+    font-size: 32px !important;
+  }
+
+  /* Tariff Table — Readable Stacked / Clean Cells Without Truncation */
+  .price-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .price-list-table thead th,
+  .price-list-table tbody td {
+    padding: 12px 12px !important;
+    font-size: 13.5px !important;
+  }
+  .price-list-table tbody td:nth-child(2) {
+    min-width: 185px;
+    white-space: normal !important;
+  }
+
+  /* Non-Overlapping Floating Template Switcher & Floating WA Button */
+  #evev-template-switcher {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 76px !important;
+    transform: none !important;
+    max-width: calc(100vw - 24px) !important;
+    padding: 6px 10px !important;
+    justify-content: flex-start;
+  }
+  #evev-template-switcher .switcher-pill {
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 11.5px !important;
+    padding: 6px 12px !important;
+  }
+
+  .floating-wa-btn {
+    bottom: 16px !important;
+    right: 14px !important;
+    padding: 12px 18px !important;
+    font-size: 13.5px !important;
+    border-radius: 999px !important;
+  }
+  .floating-wa-btn span {
+    display: inline !important;
+  }
 }
 
+/* --------------------------------------------------------------------------
+   7. ERGONOMIC SMARTPHONE BAND (360px – 414px) — ZERO OVERFLOW PRECISION
+   -------------------------------------------------------------------------- */
+@media (max-width: 414px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .brand-logo span:last-child {
+    font-size: 22px !important;
+  }
+
+  .slide-title {
+    font-size: 25px !important;
+    line-height: 1.22 !important;
+  }
+
+  .section-title {
+    font-size: 23px !important;
+    line-height: 1.28 !important;
+  }
+
+  .service-card-title {
+    font-size: 17.5px !important;
+  }
+
+  .service-meta-row {
+    gap: 6px !important;
+  }
+
+  .service-price-tag {
+    font-size: 13.5px !important;
+    padding: 5px 11px !important;
+  }
+
+  .service-duration-tag {
+    font-size: 12px !important;
+    padding: 4px 10px !important;
+  }
+
+  .pricing-price h2,
+  .pricing-price-amount {
+    font-size: 28px !important;
+  }
+
+  .about-photo-cover {
+    height: 240px !important;
+  }
+
+  .booking-wa-box {
+    padding: 20px 15px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Compact responsive stacked tariff rows on 360px–414px so ZERO horizontal scroll needed */
+  .price-list-table thead {
+    display: none;
+  }
+  .price-list-table,
+  .price-list-table tbody,
+  .price-list-table tr,
+  .price-list-table td {
+    display: block;
+    width: 100%;
+  }
+  .price-list-table tbody tr {
+    padding: 14px 14px;
+    border-bottom: 1px solid var(--evev-border, rgba(148, 163, 184, 0.28));
+  }
+  .price-list-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .price-list-table tbody td {
+    padding: 3px 0 !important;
+    border: none !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+  }
+  .price-list-table tbody td:nth-child(2) {
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .price-list-table tbody td:nth-child(3) {
+    font-size: 13px !important;
+    opacity: 0.9;
+  }
+  .price-list-table tbody td.price-amount-cell {
+    font-size: 16.5px !important;
+    margin-top: 4px;
+  }
+
+  .floating-wa-btn {
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    justify-content: center !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. PRESERVED BASE TEMPLATE UTILITIES
+   -------------------------------------------------------------------------- */
 .ltn__main-menu > ul {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
-/* --home-02- */
 .ltn__product-bg-white .ltn__product-item-3 {
-    background-color: var(--white);
-}
-.ltn__product-bg-white .ltn__product-item-3 .product-img {
-    z-index: 1;
-}
-.ltn__tab-menu-color-2 a.active {
-    background-color: var(--ltn__secondary-color);
+  background-color: var(--white);
 }
 
-/* --- */
+.ltn__product-bg-white .ltn__product-item-3 .product-img {
+  z-index: 1;
+}
+
+.ltn__tab-menu-color-2 a.active {
+  background-color: var(--ltn__secondary-color);
+}
 
 .ltn__category-dropdown-hide .ltn__category-menu-toggle {
-  display: none; }
+  display: none;
+}
 
 .ltn__category-menu-with-header-menu .ltn__category-menu-toggle {
   position: absolute;
   width: 100%;
-  z-index: 9; }
+  z-index: 9;
+}
 
 .ltn__category-item-6 {
-  border: 0; }
-  .ltn__category-item-6 .ltn__category-item-img {
-    font-size: 30px;
-    line-height: 1;
-    color: var(--ltn__color-1); }
-  .ltn__category-item-6 .ltn__category-item-name {
-    padding: 15px 5px 5px; }
-  .ltn__category-item-6:hover {
-    -webkit-box-shadow: none;
-    box-shadow: none; }
-    .ltn__category-item-6:hover i,
-    .ltn__category-item-6:hover h5,
-    .ltn__category-item-6:hover h6 {
-      color: var(--ltn__secondary-color); }
+  border: 0;
+}
+
+.ltn__category-item-6 .ltn__category-item-img {
+  font-size: 30px;
+  line-height: 1;
+  color: var(--ltn__color-1);
+}
+
+.ltn__category-item-6 .ltn__category-item-name {
+  padding: 15px 5px 5px;
+}
+
+.ltn__category-item-6:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ltn__category-item-6:hover i,
+.ltn__category-item-6:hover h5,
+.ltn__category-item-6:hover h6 {
+  color: var(--ltn__secondary-color);
+}
